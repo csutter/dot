@@ -1,0 +1,2 @@
+# Enable ls colours on macOS
+export CLICOLOR=1
