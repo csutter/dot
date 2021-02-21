@@ -1,0 +1,3 @@
+EXCLUDES="README.md LICENCE.md"
+DOTFILES_DIRS="$HOME/code/dot"
+TAGS="macos"
