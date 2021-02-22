@@ -40,6 +40,20 @@ setopt extendedglob
 # Disable nomatch warning
 unsetopt nomatch
 
+# Completion
+zstyle :compinstall filename '~/.zshrc'
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' special-dirs true
+
+# c() - jump to code directory
+c() {
+  cd ~/Code/$1
+}
+compctl -/ -W ~/code c
+
 # Editors
 export VISUAL=nvim
 export EDITOR=$VISUAL
