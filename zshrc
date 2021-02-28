@@ -69,3 +69,5 @@ source "$HOME/.aliases"
 if [ -f ".zshrc_platform" ]; then
   source "$HOME/.zshrc_platform"
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

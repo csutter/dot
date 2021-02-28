@@ -9,7 +9,10 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'arzg/vim-colors-xcode'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
   Plug 'junegunn/vim-easy-align'
+  Plug 'machakann/vim-sandwich'
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
@@ -39,3 +42,12 @@ if (has("termguicolors"))
 endif
 syntax enable
 colorscheme xcodelight
+
+" fzf configuration
+nnoremap <C-p> :GFiles<CR>
+nnoremap <C-g> :Ag<Cr>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \}
