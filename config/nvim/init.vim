@@ -17,6 +17,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-vinegar'
+  Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " Mouse
@@ -41,7 +42,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme xcodelight
+colorscheme xcodelighthc
 
 " fzf configuration
 nnoremap <C-p> :GFiles<CR>
