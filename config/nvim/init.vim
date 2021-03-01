@@ -6,18 +6,34 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin(stdpath('data') . '/plugged')
+  " Editor improvements
   Plug 'airblade/vim-gitgutter'
-  Plug 'arzg/vim-colors-xcode'
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-  Plug 'junegunn/vim-easy-align'
-  Plug 'machakann/vim-sandwich'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'tpope/vim-commentary'
-  Plug 'tpope/vim-surround'
   Plug 'tpope/vim-vinegar'
   Plug 'vim-airline/vim-airline'
+
+  " fzf
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+
+  " Text operations
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'junegunn/vim-easy-align'
+  Plug 'machakann/vim-sandwich'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-surround'
+
+  " Language support
+  "" Ruby/Rails
+  Plug 'slim-template/vim-slim'
+  Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-rails'
+  "" Terraform
+  Plug 'hashivim/vim-terraform'
+
+  " Colours
+  Plug 'arzg/vim-colors-xcode'
 call plug#end()
 
 " Mouse
@@ -36,6 +52,9 @@ set hlsearch incsearch smartcase
 
 " Splits
 set splitright splitbelow
+
+" Trim trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Colors
 if (has("termguicolors"))
