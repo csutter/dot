@@ -53,6 +53,10 @@ set hlsearch incsearch smartcase
 " Splits
 set splitright splitbelow
 
+" Display
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set showcmd
+
 " Trim trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -80,3 +84,7 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
+
+" Custom leader shortcuts
+nnoremap <Leader>l :set list!<CR>
+nnoremap <Leader>R :source $MYVIMRC<CR>
