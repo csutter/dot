@@ -61,7 +61,16 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme xcodelighthc
+
+" Dark mode handling
+let iterm_profile = $ITERM_PROFILE
+if iterm_profile == "Dark"
+  set background=dark
+  colorscheme xcodedarkhc
+else
+  set background=light
+  colorscheme xcodelighthc
+endif
 
 " fzf configuration
 nnoremap <C-p> :GFiles<CR>
