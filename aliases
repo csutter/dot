@@ -1,9 +1,6 @@
 # Shell
 alias sup="source $HOME/.zshrc && echo 'Reloaded .zshrc!'"
 
-# Tail
-alias tf="tail -n0 -f"
-
 # Directories
 alias l="ls"
 alias ll="ls -al"
@@ -26,4 +23,5 @@ alias gu="git pull"
 alias be="bundle exec"
 
 # Tools
+alias tf="terraform"
 alias v="nvim"
