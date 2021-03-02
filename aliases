@@ -25,3 +25,4 @@ alias be="bundle exec"
 # Tools
 alias tf="terraform"
 alias v="nvim"
+alias vim="nvim"

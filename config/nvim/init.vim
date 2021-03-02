@@ -7,7 +7,6 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
   " Editor improvements
-  Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-vinegar'
   Plug 'vim-airline/vim-airline'
 
@@ -31,6 +30,10 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'tpope/vim-rails'
   "" Terraform
   Plug 'hashivim/vim-terraform'
+
+  " Integrations
+  Plug 'mhinz/vim-signify'
+  Plug 'tpope/vim-fugitive'
 
   " Colours
   Plug 'arzg/vim-colors-xcode'
@@ -56,6 +59,9 @@ set splitright splitbelow
 " Display
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set showcmd
+
+" Async
+set updatetime=100
 
 " Trim trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
@@ -84,6 +90,15 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit'
   \}
+
+" vim-signify configuration
+let g:signify_sign_change = '~'
+highlight link SignifySignAdd             DiffAdd
+highlight link SignifySignChange          DiffChange
+highlight link SignifySignDelete          DiffDelete
+
+" Window management
+nmap <Space> <C-w>
 
 " Custom leader shortcuts
 nnoremap <Leader>l :set list!<CR>
