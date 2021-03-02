@@ -1,6 +1,9 @@
 # Shell
 alias sup="source $HOME/.zshrc && echo 'Reloaded .zshrc!'"
 
+# Tmux
+alias tm="tmux"
+
 # Directories
 alias l="ls"
 alias ll="ls -al"
