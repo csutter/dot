@@ -24,6 +24,7 @@ alias gu="git pull"
 
 # Ruby
 alias be="bundle exec"
+alias fore="foreman start -f Procfile.local"
 
 # Tools
 alias tf="terraform"

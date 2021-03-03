@@ -24,6 +24,8 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'tpope/vim-surround'
 
   " Language support
+  "" Dotenv
+  Plug 'tpope/vim-dotenv'
   "" Ruby/Rails
   Plug 'slim-template/vim-slim'
   Plug 'tpope/vim-endwise'
