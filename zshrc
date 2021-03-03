@@ -54,14 +54,6 @@ c() {
 }
 compctl -/ -W ~/code c
 
-# Editors
-export VISUAL=nvim
-export EDITOR=$VISUAL
-
-# Path (deduplicated)
-PATH="$HOME/bin:$PATH"
-export -U PATH
-
 # Load aliases
 source "$HOME/.aliases"
 
@@ -69,5 +61,8 @@ source "$HOME/.aliases"
 if [ -f ".zshrc_platform" ]; then
   source "$HOME/.zshrc_platform"
 fi
+
+# Ruby
+type "rbenv" > /dev/null && eval "$(rbenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
