@@ -3,13 +3,14 @@
   name = Christian Sutter
 [alias]
   prn = remote prune origin
+  pup = push -u origin HEAD
 [merge]
   ff = only
   conflictstyle = diff3
 [color]
   ui = true
 [push]
-  default = upstream
+  default = simple
 [pull]
   rebase = true
 [rebase]
