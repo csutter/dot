@@ -7,6 +7,7 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
   " Editor improvements
+  Plug 'preservim/vimux'
   Plug 'tpope/vim-vinegar'
   Plug 'vim-airline/vim-airline'
 
@@ -21,13 +22,13 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-surround'
 
   " Language support
   "" Dotenv
   Plug 'tpope/vim-dotenv'
   "" Ruby/Rails
   Plug 'slim-template/vim-slim'
+  Plug 'thoughtbot/vim-rspec'
   Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-rails'
   "" Terraform
@@ -93,6 +94,16 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 
+" RSpec.vim configuration
+let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}")'
+
+" Vimux improvements
+"" Move to vimux pane without entering copy mode
+function! VimuxFocusRunner()
+  call VimuxTmux('select-'.VimuxOption('VimuxRunnerType').' -t '.g:VimuxRunnerIndex)
+endfunction
+command! -bar VimuxFocusRunner :call VimuxFocusRunner()
+
 " vim-signify configuration
 let g:signify_sign_change = '~'
 highlight link SignifySignAdd             DiffAdd
@@ -104,4 +115,25 @@ nmap <Space> <C-w>
 
 " Custom leader shortcuts
 nnoremap <Leader>l :set list!<CR>
-nnoremap <Leader>R :source $MYVIMRC<CR>
+nnoremap <Leader><F5> :source $MYVIMRC<CR>
+set pastetoggle=<leader>p
+
+" Vimux shortcuts
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vf :VimuxFocusRunner<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
+map <Leader>vv :VimuxPromptCommand<CR>
+map <Leader>vc :VimuxClearTerminalScreen<CR>
+
+" Git shortcuts
+map <Leader>gs :Git status<CR>
+map <Leader>gc :Git commit<CR>
+map <Leader>gl :Git log<CR>
+map <Leader>gp :Git push<CR>
+
+" Ruby running shortcuts
+map <Leader>rc :call VimuxRunCommand("bundle exec rails console")<CR>:VimuxFocusRunner<CR>
+map <Leader>rf :call RunCurrentSpecFile()<CR>
+map <Leader>rs :call RunNearestSpec()<CR>
+map <Leader>rl :call RunLastSpec()<CR>
+map <Leader>ra :call RunAllSpecs()<CR>
